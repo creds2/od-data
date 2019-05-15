@@ -1,5 +1,6 @@
 ---
 output: github_document
+title: Transport energy analysis at the origin-destination level
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -30,7 +31,8 @@ However, from an energy systems perspective, it makes sense to identify opportun
 Transport infrastructure can be modified to enable shift to low energy modes and encourage reductions in long distance travel; destinations can discourage driving and flying to reach them through parking costs and subsidising public transport modes to work, to provide a couple of examples.
 
 The spatially distributed nature of transport energy use makes it not only possible, but useful, to analyse it across geographic space.
-The fundamental unit of aggregate geographic transport behaviour analysis, that accounts for origins, destinations and the spaces in between, is origin-destination data.
+The fundamental unit of aggregate geographic transport behaviour analysis, that accounts for origins, destinations and the spaces in between, is data at the origin-destination  data.
+This paper sets out a case for analysing and visualising transport analysis at this OD
 
 # Introduction: what is OD data?
 
