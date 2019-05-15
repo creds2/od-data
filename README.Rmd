@@ -18,7 +18,19 @@ knitr::opts_chunk$set(
 Energy use is an inherently ephemeral phenomenon.
 Although, as the second law of thermodynamics states, energy cannot be created or destroyed, *useful energy* in the fossil fuel age exists only during the relatively short span between non-renewable sources being extracted and burned.
 In the coming renewable energy age, useful energy will exist for even less time, between conversion of environmental energy fluxes into electricity, transmission, and comparatively costly temporary storage.
+The second law of thermodynamics tells us that what we call energy use is in fact energy conversion, and every conversion results in less useful energy, in continuous and ubiquitous energy converters with varying power levels and load profiles.
+In the context of passenger transport, the prime example of these conversions is in the privately owned car, often the most powerful energy converter people have access to.
 
+The act of travel involves moving across geographic space.
+Because of this, policies to address unsustainably high levels transport energy use can target 3 main areas:
+trip origins, typically residential locations where journeys begin; trip destinations, typically 'trip generators' such as school, hospitals and work places where trips end; and places in between, typically transport infrastructure.
+Of these three potential areas for policy intervention, most of the focus has been on the first.
+This makes sense from a citizen-focussed policy perspective, enabling residential areas with excessive transport energy use to be identified.
+However, from an energy systems perspective, it makes sense to identify opportunties across all three areas to intervene.
+Transport infrastructure can be modified to enable shift to low energy modes and encourage reductions in long distance travel; destinations can discourage driving and flying to reach them through parking costs and subsidising public transport modes to work, to provide a couple of examples.
+
+The spatially distributed nature of transport energy use makes it not only possible, but useful, to analyse it across geographic space.
+The fundamental unit of aggregate geographic transport behaviour analysis, that accounts for origins, destinations and the spaces in between, is origin-destination data.
 
 # Introduction: what is OD data?
 
