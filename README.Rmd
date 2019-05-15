@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 # Introduction
 
 Energy use is an inherently ephemeral phenomenon.
-Although, technically, energy cannot be created or destroyed
+Although, as the second law of thermodynamics states, energy cannot be created or destroyed, *useful energy* in the fossil fuel age exists only during the relatively short span between non-renewable sources being extracted and burned.
+In the coming renewable energy age, useful energy will exist for even less time, between conversion of environmental energy fluxes into electricity, transmission, and comparatively costly temporary storage.
+
 
 # Introduction: what is OD data?
 
