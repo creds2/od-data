@@ -1,18 +1,22 @@
 ---
-title: "Origin-destination data in R: examples with stplanr"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Origin-destination data in R: examples with stplanr}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: github_document
 ---
 
-```{r, include = FALSE}
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
 ```
+
+# Introduction
+
+Energy use is an inherently ephemeral phenomenon.
+Although, technically, energy cannot be created or destroyed
 
 # Introduction: what is OD data?
 
