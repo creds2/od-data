@@ -1,6 +1,7 @@
 ---
 output: github_document
 title: Transport energy analysis at the origin-destination level
+bibliography: creds2.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -10,8 +11,11 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  eval = FALSE
 )
+refs = RefManageR::ReadZotero(group = "418217", .params = list(collection = "AS8RTJ2X", limit = 100))
+RefManageR::WriteBib(refs, "creds2.bib")
 ```
 
 # Introduction
@@ -36,7 +40,7 @@ This paper sets out a case for analysing and visualising transport analysis at t
 
 # Introduction: what is OD data?
 
-```{r setup}
+```{r pkgs}
 library(stplanr)
 ```
 
@@ -137,4 +141,6 @@ f =  file.path(tempdir(), "origin_destination_files.zip")
 download.file(u, f)
 unzip(f)
 ```
+
+# References
 
