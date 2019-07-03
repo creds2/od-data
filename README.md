@@ -1,4 +1,4 @@
-Transport energy analysis at the origin-destination level
+Visualising transport energy use: from area to route network levels
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -118,7 +118,7 @@ lines_cars$energy_cars = lines_cars$car_km *
       2.6   # circuity (estimated at 1.3) multiplied by 2 
 
 lines_cars_top = lines_cars %>% 
-  top_n(n = 20000, wt = energy_cars)
+  top_n(n = 100000, wt = energy_cars)
   # top_n(n = 100000, wt = energy_cars)
 ```
 
@@ -203,6 +203,8 @@ We will also look at the impact of using route distances rather than
 straight line distances with an average cirquity.
 
 # Route analysis
+
+# Route network analysis
 
 # References
 

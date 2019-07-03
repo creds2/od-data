@@ -198,12 +198,25 @@ piggyback::pb_download("top10000routes_missing.Rds")
 r = readRDS("top10000routes.Rds")
 r_missing = readRDS("top10000routes_missing.Rds")
 r = rbind(r, r_missing)
+# saveRDS(r, "routes-all-100000.Rds")
+# piggyback::pb_upload("routes-all-100000.Rds")
 names(r)
 r_top = r %>% 
   filter(fromPlace %in% lines_cars_top$geo_code1) %>% 
   filter(toPlace %in% lines_cars_top$geo_code2) 
 plot(r_top[1:999, "mode"])
+names(lines_cars_top)
 
+# # fails as from/to reversed:
+# r_joined = r_top %>%
+#   rename(geo_code1 = toPlace, geo_code2 = fromPlace) %>% 
+#   inner_join(., sf::st_drop_geometry(lines_cars_top)) 
+r_joined2 = r_top %>%
+  rename(geo_code2 = toPlace, geo_code1 = fromPlace) %>% 
+  inner_join(., sf::st_drop_geometry(lines_cars_top))
+
+names(r_joined2)
+rnet = stplanr::overline2(r_joined2, "energy_cars")
 ```
 
 # Route network analysis
