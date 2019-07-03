@@ -106,6 +106,9 @@ downloaded, read-in and plotted as
 follows:
 
 ``` r
+download.file(url = "https://github.com/ropensci/stplanr/releases/download/0.2.9/desire_lines_cars.Rds", "desire_lines_cars.Rds")
+lines_cars = readRDS("desire_lines_cars.Rds")
+
 lines_cars$`Drive to work (%)` = lines_cars$car_driver / lines_cars$all * 100
 # plot(lines_cars["car_km"], lwd = lines_cars$car_km / 1000)
 sum(lines_cars$all)
@@ -117,7 +120,9 @@ lines_cars$energy_cars = lines_cars$car_km *
 lines_cars_top = lines_cars %>% 
   top_n(n = 20000, wt = energy_cars)
   # top_n(n = 100000, wt = energy_cars)
+```
 
+``` r
 m = tm_shape(lines_cars_top) +
   tm_lines(palette = "-viridis", breaks = c(0, 50, 60, 70, 80, 90, 100), 
     lwd = "all",
@@ -139,10 +144,10 @@ circuity of 1.3, we can estimate the total energy use of the ‘high
 energy commutes’ as follows:
 
 ``` r
-pj_per_mtoe = 41.86
+pj_to_mtoe = 41.86
 56.5 * pj_to_mtoe
 sum(lines_cars$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 12% of transport energy use
-sum(lines_cars_top$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 12% of transport energy use
+sum(lines_cars_top$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 1.4% of transport energy use
 ```
 
 That represents ~10 petajoules (PJ), only for the top 20,000 most energy
