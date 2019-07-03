@@ -23,11 +23,19 @@ dist_pairs$dist <- as.integer(dists)
 rm(coord, dists, cents_lsoa)
 dist_pairs <- dist_pairs[dist_pairs$from != dist_pairs$to, ]
 gc()
-dist_pairs$id <- sapply(1:nrow(dist_pairs), function(x){
-  id = c(dist_pairs$from[x], dist_pairs$to[x])
-  id = id[order(id)]
-  id = paste(id, collapse = " ")
-})
+pairing <- function(x, y, ordermatters = FALSE){
+  if(ordermatters){
+    ismax <- x > y
+    return((ismax * 1) * (x^2 + x + y) + ((!ismax) * 1) * (y^2 + x))
+  }else{
+    a <- ifelse(x > y, y, x)
+    b <- ifelse(x > y, x, y)
+    return(b^2 + a)
+  }
+  
+}
+
+dist_pairs$id <- pairing(as.integer(dist_pairs$from), as.integer(dist_pairs$to))
 dist_pairs <- dist_pairs[!duplicated(dist_pairs$id),]
 
 #dist_pairs$ODsame <- dist_pairs$from == dist_pairs$to
