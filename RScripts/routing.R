@@ -5,7 +5,7 @@ library(pct)
 
 path_otp = "D:/otp_optitruck/otp.jar"
 path_data = "F:/otp-GB"
-memory = 30
+memory = 30000
 
 # Config otp
 
@@ -26,7 +26,7 @@ otp_write_config(router, path_data)
 # Run Onece
 #log1 = otp_build_graph(otp = path_otp, dir = path_data, memory = memory)
 log2 = otp_setup(otp = path_otp,
-                         dir = dir,
+                         dir = path_data,
                          memory = memory,
                          port = 8801,
                          securePort = 8802,
