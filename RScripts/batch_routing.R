@@ -1,6 +1,6 @@
 od_all <- readRDS("F:/lsoa_routes_all/lsoa_od_all.Rds")
-od_all$try <- FALSE
-od_all$done <- FALSE
+#od_all$try <- FALSE
+#od_all$done <- FALSE
 
 
 cents_lsoa <- read_sf("D:/Users/earmmor/OneDrive - University of Leeds/Cycling Big Data/LSOA/england_lsoa_2011_centroids_mod.shp")
@@ -13,7 +13,7 @@ mode <- "CAR"
 n <- ceiling(nrow(od_all) / batch)
 nr <- nrow(od_all)
 otpcon <- otp_connect(hostname =  "localhost", router = "default", port = 8801)
-for(i in 195:n){
+for(i in 647:n){
   message(paste0(Sys.time()," doing ",i," of ",n))
   b <- batch * i
   a <- b - batch + 1
@@ -31,7 +31,7 @@ for(i in 195:n){
                      fromPlace$code, 
                      toPlace$code,
                      mode = mode,
-                     ncores = 2)
+                     ncores = 6)
   
   saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes/r_",mode,"_bch_",i,"_",a,"to",b,".Rds"))
   
