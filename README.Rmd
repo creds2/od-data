@@ -213,10 +213,11 @@ names(lines_cars_top)
 #   inner_join(., sf::st_drop_geometry(lines_cars_top)) 
 r_joined2 = r_top %>%
   rename(geo_code2 = toPlace, geo_code1 = fromPlace) %>% 
-  inner_join(., sf::st_drop_geometry(lines_cars_top))
+  inner_join(., sf::st_drop_geometry(lines_cars_top)) %>% 
+  sf::st_zm()
 
 names(r_joined2)
-rnet = stplanr::overline2(r_joined2, "energy_cars")
+rnet = stplanr::overline2(r_joined2, "car_driver")
 ```
 
 # Route network analysis
