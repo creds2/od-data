@@ -45,3 +45,19 @@ qtm(cents_odd_top, dots.col = "Freq")
 # lots around islands, and a few random one that can be fixed. Most only occure a few times which might just be timeouts
 
 # fire up otp again and retry
+cents_new <- st_read("data/lsoa_centroids_modified.gpkg")
+cents_new$code <- as.character(cents_new$code)
+fromPlace <- cents_new[match(od_fail$from, cents_new$code),]
+
+toPlace <- cents_new[match(od_fail$to, cents_new$code),]
+mode = "CAR"
+
+routes <- otp_plan(otpcon, 
+                   fromPlace, 
+                   toPlace, 
+                   fromPlace$code, 
+                   toPlace$code,
+                   mode = mode,
+                   ncores = 6)
+
+saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes/r_",mode,"_missing_1_to_646_att_1.Rds"))
