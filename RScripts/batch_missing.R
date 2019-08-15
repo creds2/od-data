@@ -7,7 +7,7 @@ library(opentripplanner)
 tmap_mode("view")
 od_all <- readRDS("F:/lsoa_routes_all/lsoa_od_all.Rds")
 od_all <- as.data.table(od_all)
-od_all_chk <- od_all[1:6460000,]
+od_all_chk <- od_all[1:10000,]
 od_fail <- od_all_chk[!od_all_chk$done,]
 od_succ <- od_all_chk[od_all_chk$done,]
 

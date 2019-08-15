@@ -18,13 +18,13 @@ for(i in 1:n){
   fromPlace <- cents_lsoa[match(od$from, cents_lsoa$code),]
   toPlace <- cents_lsoa[match(od$to, cents_lsoa$code),]
   
-  routes2 <- otp_plan(otpcon, 
+  routes <- otp_plan(otpcon, 
                      fromPlace, 
                      toPlace, 
                      fromPlace$code, 
                      toPlace$code,
                      mode = mode,
-                     ncores = 6)
+                     ncores = 7)
   
   saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes2/r_",mode,"_bch_",i,"_",a,"to",b,".Rds"))
   
@@ -36,7 +36,7 @@ for(i in 1:n){
   od_all$done[a:b] <- od$done
   
   if(i %% 10 == 0){
-    saveRDS(od_all, "F:/lsoa_routes_all/lsoa_od_all.Rds")
+    saveRDS(od_all, "F:/lsoa_routes_all/lsoa_od_all2.Rds")
   }
   
   
