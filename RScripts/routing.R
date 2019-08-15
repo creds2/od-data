@@ -3,37 +3,20 @@ library(opentripplanner)
 library(sf)
 library(pct)
 
-path_otp = "D:/otp_optitruck/otp.jar"
+path_otp = "F:/otp-GB/otp-1.4.jar"
 path_data = "F:/otp-GB"
 memory = 30000
 
-# Config otp
-
-build <- otp_make_config("build")
-build$osmWayPropertySet <- "norway"
-
-router <- otp_make_config("router")
-router$routingDefaults$driveOnRight <- FALSE
-router$timeout <- 20
-router$timeouts <- c(20, 10, 5, 4, 3)
-
-otp_validate_config(build)
-otp_validate_config(router)
-
-otp_write_config(build, path_data)
-otp_write_config(router, path_data)
-
-# Run Onece
-#log1 = otp_build_graph(otp = path_otp, dir = path_data, memory = memory)
 log2 = otp_setup(otp = path_otp,
                          dir = path_data,
                          memory = memory,
+                         router = "drive",
                          port = 8801,
                          securePort = 8802,
                          analyst = FALSE,
                          wait = TRUE)
 
-otpcon <- otp_connect(hostname =  "localhost", router = "default", port = 8801)
+otpcon <- otp_connect(hostname =  "localhost", router = "drive", port = 8801)
 
 # Get lines
 u = "https://github.com/ropensci/stplanr/releases/download/0.2.9/desire_lines_cars.Rds"

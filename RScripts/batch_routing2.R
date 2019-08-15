@@ -1,19 +1,12 @@
 od_all <- readRDS("F:/lsoa_routes_all/lsoa_od_all2.Rds")
-#od_all$try <- FALSE
-#od_all$done <- FALSE
-
-
-cents_lsoa <- read_sf("D:/Users/earmmor/OneDrive - University of Leeds/Cycling Big Data/LSOA/england_lsoa_2011_centroids_mod.shp")
-st_crs(cents_lsoa) <- 27700
-cents_lsoa <- st_transform(cents_lsoa, 4326)
-cents_lsoa <- cents_lsoa[,c("code")]
+cents_lsoa <- read_sf("data/lsoa_centroids_modified.gpkg")
 
 batch <- 10000
 mode <- "CAR"
 n <- ceiling(nrow(od_all) / batch)
 nr <- nrow(od_all)
-otpcon <- otp_connect(hostname =  "localhost", router = "default", port = 8801)
-for(i in 647:n){
+otpcon <- otp_connect(hostname =  "localhost", router = "drive", port = 8801)
+for(i in 1:n){
   message(paste0(Sys.time()," doing ",i," of ",n))
   b <- batch * i
   a <- b - batch + 1
@@ -25,7 +18,7 @@ for(i in 647:n){
   fromPlace <- cents_lsoa[match(od$from, cents_lsoa$code),]
   toPlace <- cents_lsoa[match(od$to, cents_lsoa$code),]
   
-  routes <- otp_plan(otpcon, 
+  routes2 <- otp_plan(otpcon, 
                      fromPlace, 
                      toPlace, 
                      fromPlace$code, 
@@ -33,7 +26,7 @@ for(i in 647:n){
                      mode = mode,
                      ncores = 6)
   
-  saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes/r_",mode,"_bch_",i,"_",a,"to",b,".Rds"))
+  saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes2/r_",mode,"_bch_",i,"_",a,"to",b,".Rds"))
   
   od_all$try[a:b] <- TRUE
   od$id <- paste0(od$from," ",od$to)
