@@ -5,9 +5,10 @@ library(stplanr)
 library(dplyr)
 library(opentripplanner)
 tmap_mode("view")
-od_all <- readRDS("F:/lsoa_routes_all/lsoa_od_all.Rds")
+od_all <- readRDS("F:/lsoa_routes_all/lsoa_od_all2.Rds")
 od_all <- as.data.table(od_all)
-od_all_chk <- od_all[1:10000,]
+od_all_chk <- od_all[1:(438 * 10000),]
+od_all_chk <- od_all_chk[od_all_chk$try,]
 od_fail <- od_all_chk[!od_all_chk$done,]
 od_succ <- od_all_chk[od_all_chk$done,]
 
@@ -26,11 +27,13 @@ cent_rate <- cent_rate %>%
             fail = length(done[!done]))
 cent_rate$rate <- cent_rate$fail / cent_rate$attempt
 cent_rate <- cent_rate[order(cent_rate$rate, decreasing = TRUE),]
-bad_cent <- cent_rate$to[cent_rate$rate > 0.90 & cent_rate$rate <= 2]
+bad_cent <- cent_rate$to[cent_rate$rate > 0.1 & cent_rate$rate <= 0.5]
 bad_cent <- cents_lsoa[cents_lsoa$code %in% bad_cent,]
 
 qtm(bad_cent, dots.col = "fix")
 
+line_fail = stplanr::od2line(od_fail, cents_lsoa)
+qtm(line_fail)
 # lsoa_succ <- unique(c(as.character(od_succ$from), as.character(od_succ$to)))
 # lsoa_f1 <- unique(c(as.character(od_fail$from), as.character(od_fail$to)))
 # lsoa_f2 <- lsoa_f1[!lsoa_f1 %in% lsoa_succ]
@@ -78,7 +81,7 @@ fromPlace <- cents_new[match(od_fail$from, cents_new$code),]
 
 toPlace <- cents_new[match(od_fail$to, cents_new$code),]
 mode = "CAR"
-otpcon <- otp_connect(hostname =  "localhost", router = "default", port = 8801)
+otpcon <- otp_connect(hostname =  "localhost", router = "drive", port = 8801)
 
 routes <- otp_plan(otpcon, 
                    fromPlace, 
@@ -88,7 +91,7 @@ routes <- otp_plan(otpcon,
                    mode = mode,
                    ncores = 4)
 
-saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes/r_",mode,"_missing_1_to_646_att_2.Rds"))
+saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes2/r_",mode,"_missing_1_to_438_att_4.Rds"))
 
 # Update the master records
 
@@ -101,5 +104,5 @@ summary(od_all_chk$done2)
 summary(od_all_chk$done)
 od_all_chk$done <- ifelse(od_all_chk$done,TRUE,od_all_chk$done2)
 summary(od_all_chk$done)
-od_all$done[1:6460000] <- od_all_chk$done
-saveRDS(od_all, "F:/lsoa_routes_all/lsoa_od_all.Rds")
+od_all$done[1:4380000] <- od_all_chk$done
+saveRDS(od_all, "F:/lsoa_routes_all/lsoa_od_all2.Rds")

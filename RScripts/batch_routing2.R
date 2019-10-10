@@ -6,7 +6,7 @@ mode <- "CAR"
 n <- ceiling(nrow(od_all) / batch)
 nr <- nrow(od_all)
 otpcon <- otp_connect(hostname =  "localhost", router = "drive", port = 8801)
-for(i in 1:n){
+for(i in 891:n){
   message(paste0(Sys.time()," doing ",i," of ",n))
   b <- batch * i
   a <- b - batch + 1
@@ -24,7 +24,7 @@ for(i in 1:n){
                      fromPlace$code, 
                      toPlace$code,
                      mode = mode,
-                     ncores = 7)
+                     ncores = 4)
   
   saveRDS(routes, paste0("F:/lsoa_routes_all/batch_routes2/r_",mode,"_bch_",i,"_",a,"to",b,".Rds"))
   
