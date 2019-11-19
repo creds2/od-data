@@ -1,0 +1,94 @@
+---
+title: "Visualising transport energy use"
+subtitle: "🚴🔋<br/>from area to street levels"
+author: "Robin Lovelace"
+institute: "Leeds' Institute for Transport Studies, SPS Group"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+background-image: url(https://user-images.githubusercontent.com/1825120/61066243-12dc6d80-a3fd-11e9-8805-826a47c553f6.png)
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+???
+
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+
+---
+class: center, middle
+
+# Why transport and energy?
+
+--
+
+![](https://media0.giphy.com/media/xT0xeMA62E1XIlup68/giphy.gif?cid=790b761123764f4a15f5978ce4c178f09cb9824e7bd9999f&rid=giphy.gif)
+
+--
+
+It's a growing tough cookie: [Source](http://etheses.whiterose.ac.uk/5027/1/Thesis.pdf#page=24)
+
+--
+
+## It's an enigma
+
+[Source](http://etheses.whiterose.ac.uk/5027/1/Thesis.pdf#page=3) 
+
+---
+
+# Origins of interest in energy
+
+![](https://raw.githubusercontent.com/Robinlovelace/thesis-reproducible/master/Figures-small/dutchen.png)
+
+
+Link: http://etheses.whiterose.ac.uk/5027/
+
+Reproducible code: https://github.com/Robinlovelace/thesis-reproducible
+
+---
+
+# Link to social sciences
+
+![](https://raw.githubusercontent.com/Robinlovelace/thesis-reproducible/master/Figures-small/hereford.png)
+
+---
+
+Cycling isn't the answer
+
+Source: http://etheses.whiterose.ac.uk/5027/1/Thesis.pdf#page=311
+
+---
+
+cl# Current work - [visualisation](https://github.com/creds2/od-data)
+
+![](https://raw.githubusercontent.com/creds2/od-data/master/overview_map1.png)
+
+ass: center, middle
+
+# ---
+
+# Methods
+
+See https://docs.ropensci.org/stplanr/articles/stplanr-od.html
+
+---
+
+# Next
+
+- Open discussion
+
+---
+
+#hanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).

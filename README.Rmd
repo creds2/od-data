@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   eval = FALSE,
   echo = TRUE
 )
-refs = RefManageR::ReadZotero(group = "418217", .params = list(collection = "AS8RTJ2X", limit = 100))
+refs_creds = RefManageR::ReadZotero(group = "418217", .params = list(collection = "AS8RTJ2X", limit = 100))
 RefManageR::WriteBib(refs, "creds2.bib")
 ```
 
@@ -87,7 +87,6 @@ lines_cars$euclidean_distance_m = as.numeric(sf::st_length(lines_cars)) / 1000
 lines_cars$car_km = lines_cars$car_driver * lines_cars$euclidean_distance_m
 summary(lines_cars$car_driver)
 ```
-
 
 by the number of car km used for travel to work, which can be downloaded, read-in and plotted as follows:
 

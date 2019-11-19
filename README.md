@@ -5,7 +5,8 @@ Visualising transport energy use: from area to route network levels
 
 # Note
 
-*This document is work in progress.*
+*This paper is work in progress. Comments and suggested changes are
+welcome.*
 
 Code chunks and other notes that, will not be in the final paper
 submitted for peer review, are shown for transparency, learning, and to
