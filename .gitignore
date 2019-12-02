@@ -37,4 +37,5 @@ rsconnect/
 *.Rds
 
 # Folders
-lucene
+lucene*
+*.txt
