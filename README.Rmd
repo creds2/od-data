@@ -1,7 +1,8 @@
 ---
 output: github_document
 title: "Visualising transport energy use: from area to route network levels"
-bibliography: creds2.bib
+bibliography: od.bib
+# bibliography: allrefs.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -13,17 +14,20 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%",
   eval = FALSE,
-  echo = TRUE
+  echo = FALSE
 )
-refs_creds = RefManageR::ReadZotero(group = "418217", .params = list(collection = "AS8RTJ2X", limit = 100))
-RefManageR::WriteBib(refs, "creds2.bib")
 ```
 
-# Note
+```{r, eval=FALSE, echo=FALSE}
+citr::tidy_bib_file(rmd_file = "README.Rmd", messy_bibliography = "allrefs.bib", file = "od.bib")
+```
+
+
+# Notes
 
 *This paper is work in progress. Comments and suggested changes are welcome.*
 
-Code chunks and other notes that, will not be in the final paper submitted for peer review, are shown for transparency, learning, and to encourage feedback.
+See the .Rmd file that contains the source code to reproduce the results (code not shown by default)
 
 ```{r setuppkgs}
 # Note: these packages must be installed to reproduce the results
@@ -33,6 +37,18 @@ library(stplanr)
 library(tidyverse)
 library(tmap)
 ```
+
+
+## Papers to cite
+
+We should probably cite these papers (please add more):
+
+- Paper on OD data for geodemographics: http://www.sciencedirect.com/science/article/pii/S0198971516303301
+
+<!-- [@martin_origin-destination_2018] -->
+
+- [@alexander_validation_2015; @he_simple_2018; @munuzuri_estimation_2004]
+
 
 
 # Introduction
@@ -59,7 +75,7 @@ This paper sets out a case for analysing and visualising transport analysis at t
 
 - Something on visualisation of spatial phenomena, e.g. building on [@rae_spatial_2009]
 
-# Exploration of energy use at the OD in national commuter data
+# Levels of visualisation
 
 OD datasets are 'implicitly geographic': their coordinates are not contained in the data, but associated with another data object, typically a zone or a zone centroid.
 An example demonstrating OD data is shown below, which respresents 2.4 million desire lines at the MSOA-MSOA level in England and Wales.
@@ -141,10 +157,16 @@ sum(lines_cars_top$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 1.4% of tran
 That represents ~10 petajoules (PJ), only for the top 20,000 most energy intensive commutes.
 That may seem like alot, but represents only a fraction of the UK's total energy use of [~200 Mtoe](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/729451/DUKES_PN.pdf) (8400 PJ).
 
-## Aggregation to zones
+## Zone of origin
 
 The energy use presented at the OD level in the previous section can be aggregated to the zone leve.
 
+
+## Zone of destination
+
+## Centroids 
+
+An issue with visualising zonal data on geographic maps is that the results can over-emphasise attributes large, rural areas [@ref].
 
 ```{r}
 zones_attr = lines_cars %>% 
@@ -180,6 +202,16 @@ tmap_save(m, "energy_origins_destinations.png")
 ```{r, echo=FALSE, eval=TRUE}
 knitr::include_graphics("energy_origins_destinations.png")
 ```
+
+## Visualising desires lines
+
+## Desire lines
+
+## Desire lines with direction
+
+## Routes
+
+## Route networks
 
 # Next steps
 

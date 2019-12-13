@@ -3,23 +3,24 @@ Visualising transport energy use: from area to route network levels
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Note
+# Notes
 
 *This paper is work in progress. Comments and suggested changes are
 welcome.*
 
-Code chunks and other notes that, will not be in the final paper
-submitted for peer review, are shown for transparency, learning, and to
-encourage feedback.
+See the .Rmd file that contains the source code to reproduce the results
+(code not shown by default)
 
-``` r
-# Note: these packages must be installed to reproduce the results
-library(pct)
-library(sf)
-library(stplanr)
-library(tidyverse)
-library(tmap)
-```
+## Papers to cite
+
+We should probably cite these papers (please add more):
+
+  - Paper on OD data for geodemographics:
+    <http://www.sciencedirect.com/science/article/pii/S0198971516303301>
+
+<!-- [@martin_origin-destination_2018] -->
+
+  - (Alexander et al. 2015; He et al. 2018; Munuzuri et al. 2004)
 
 # Introduction
 
@@ -67,7 +68,7 @@ analysing and visualising transport analysis at this OD level.
   - Something on visualisation of spatial phenomena, e.g. building on
     (Rae 2009)
 
-# Exploration of energy use at the OD in national commuter data
+# Levels of visualisation
 
 OD datasets are ‘implicitly geographic’: their coordinates are not
 contained in the data, but associated with another data object,
@@ -80,62 +81,8 @@ origin and destination were reported in the 2011 Census. This represents
 contained in the file `wu03ew_v2.csv`, which can be downloaded from
 <http://wicid.ukdataservice.ac.uk/> as follows:
 
-``` r
-od_data_all = pct::get_od()
-
-# remove intra-zonal
-cents_ew = pct::get_centroids_ew()
-od_data_inter = od_data_all[
-  od_data_all$geo_code1 %in% cents_ew$msoa11cd &
-  od_data_all$geo_code2 %in% cents_ew$msoa11cd ,
-  ]
-
-# subset lines to speed-up od2line function
-# od_cars = od_data_all[od_data_all$car_driver >= 5, ] # 440000 lines
-od_cars = od_data_inter[od_data_inter$all >= 10, ] # 360695 lines
-sum(od_cars$all) / sum(od_data_inter$all) # represents 80% of all inter-zonal flow 
-
-lines_cars = od2line(od_cars, cents_ew)
-plot(lines_cars[1:999, ])
-lines_cars$euclidean_distance_m = as.numeric(sf::st_length(lines_cars)) / 1000
-lines_cars$car_km = lines_cars$car_driver * lines_cars$euclidean_distance_m
-summary(lines_cars$car_driver)
-```
-
 by the number of car km used for travel to work, which can be
-downloaded, read-in and plotted as
-follows:
-
-``` r
-download.file(url = "https://github.com/ropensci/stplanr/releases/download/0.2.9/desire_lines_cars.Rds", "desire_lines_cars.Rds")
-lines_cars = readRDS("desire_lines_cars.Rds")
-
-lines_cars$`Drive to work (%)` = lines_cars$car_driver / lines_cars$all * 100
-# plot(lines_cars["car_km"], lwd = lines_cars$car_km / 1000)
-sum(lines_cars$all)
-lines_cars$energy_cars = lines_cars$car_km *
-      2.5 * # average energy use per vehicle km 
-      220 * # estimated number of commutes/yr
-      2.6   # circuity (estimated at 1.3) multiplied by 2 
-
-lines_cars_top = lines_cars %>% 
-  top_n(n = 100000, wt = energy_cars)
-  # top_n(n = 100000, wt = energy_cars)
-```
-
-``` r
-m = tm_shape(lines_cars_top) +
-  tm_lines(palette = "-viridis", breaks = c(0, 50, 60, 70, 80, 90, 100), 
-    lwd = "all",
-    lwd.legend = c(200, 400, 600),
-    scale = 15,
-    title.lwd = "Number of trips",
-    alpha = 0.8,
-    col = "Drive to work (%)"
-  ) +
-  tm_scale_bar()
-tmap_save(m, "overview_map1.png")
-```
+downloaded, read-in and plotted as follows:
 
 <img src="overview_map1.png" width="100%" />
 
@@ -144,56 +91,36 @@ that these return trips are made on average 200 times per year, with a
 circuity of 1.3, we can estimate the total energy use of the ‘high
 energy commutes’ as follows:
 
-``` r
-pj_to_mtoe = 41.86
-56.5 * pj_to_mtoe
-sum(lines_cars$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 12% of transport energy use
-sum(lines_cars_top$energy_cars / 1e9) / (56.5 * pj_to_mtoe) * 100 # 1.4% of transport energy use
-```
-
 That represents ~10 petajoules (PJ), only for the top 20,000 most energy
 intensive commutes. That may seem like alot, but represents only a
 fraction of the UK’s total energy use of [~200
 Mtoe](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/729451/DUKES_PN.pdf)
 (8400 PJ).
 
-## Aggregation to zones
+## Zone of origin
 
 The energy use presented at the OD level in the previous section can be
 aggregated to the zone leve.
 
-``` r
-zones_attr = lines_cars %>% 
-  st_drop_geometry() %>% 
-  group_by(geo_code1) %>% 
-  summarize_if(is.numeric, sum) %>% 
-  dplyr::rename(msoa11cd = geo_code1)
+## Zone of destination
 
-zones_joined = left_join(cents_ew, zones_attr)
+## Centroids
 
-zones_od = lines_cars %>% 
-  st_drop_geometry() %>% 
-  select(msoa11cd = geo_code2, energy_cars_dest = energy_cars) %>% 
-  group_by(msoa11cd) %>% 
-  summarize_if(is.numeric, sum) %>% 
-  inner_join(zones_joined, .)
-
-
-plot(zones_od[c("energy_cars", "energy_cars_dest")])
-
-
-m = tm_shape(zones_od) +
-  tm_dots(c("energy_cars", "energy_cars_dest"), size = c("energy_cars", "energy_cars_dest"), pal = "Accent", alpha = 0.9, 
-          legend.size.show  = FALSE,
-          # midpoint = 200e6,
-          # style = "quantile",
-          breaks = c(0, 1, 10, 100, 1000) * 1e6
-          ) +
-  tm_facets(free.scales = FALSE)
-tmap_save(m, "energy_origins_destinations.png")
-```
+An issue with visualising zonal data on geographic maps is that the
+results can over-emphasise attributes large, rural areas
+(<span class="citeproc-not-found" data-reference-id="ref">**???**</span>).
 
 <img src="energy_origins_destinations.png" width="100%" />
+
+## Visualising desires lines
+
+## Desire lines
+
+## Desire lines with direction
+
+## Routes
+
+## Route networks
 
 # Next steps
 
@@ -210,6 +137,34 @@ straight line distances with an average cirquity.
 # References
 
 <div id="refs" class="references">
+
+<div id="ref-alexander_validation_2015">
+
+Alexander, Lauren, Shan Jiang, Mikel Murga, and Marta C Gonz. 2015.
+“Validation of Origin-Destination Trips by Purpose and Time of Day
+Inferred from Mobile Phone Data.” *Transportation Research Part B:
+Methodological*, 1–20. <https://doi.org/10.1016/j.trc.2015.02.018>.
+
+</div>
+
+<div id="ref-he_simple_2018">
+
+He, Biao, Yan Zhang, Yu Chen, and Zhihui Gu. 2018. “A Simple Line
+Clustering Method for Spatial Analysis with Origin-Destination Data and
+Its Application to Bike-Sharing Movement Data.” *ISPRS International
+Journal of Geo-Information* 7 (6): 203.
+<https://doi.org/10.3390/ijgi7060203>.
+
+</div>
+
+<div id="ref-munuzuri_estimation_2004">
+
+Munuzuri, J., J. Larraneta, L. Onieva, and P. Cortes. 2004. *Estimation
+of an Origin-Destination Matrix for Urban Freight Transport. Application
+to the City of Seville*. Edited by E. Taniguchi and R. G. Thompson.
+Amsterdam: Elsevier Science Bv.
+
+</div>
 
 <div id="ref-rae_spatial_2009">
 

@@ -2,8 +2,11 @@
 
 library(tidyverse)
 
-system("head -10 '19029 Robin Lovelace MSOA.txt'")
-d = readr::read_csv("19029 Robin Lovelace MSOA.txt")
+mot_file_location = "~/creds2/od-data/19029 Robin Lovelace MSOA.txt"
+
+d = readr::read_csv(mot_file_location)
+head(d)
+summary(d)
 ncol(d)
 names(d)
 
@@ -25,3 +28,5 @@ d_bands_yr_long %>%
   filter(str_detect(string = Band, pattern = "new_band_[a,b,c,d,e,m,l]")) %>% 
   ggplot() +
   geom_line(aes(yr, value, col = Band))
+
+
