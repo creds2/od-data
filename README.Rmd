@@ -121,7 +121,7 @@ lines_cars$energy_cars = lines_cars$car_km *
 
 lines_cars_top = lines_cars %>% 
   top_n(n = 100000, wt = energy_cars)
-  # top_n(n = 100000, wt = energy_cars)
+  # top_n(n = 200000, wt = energy_cars)
 ```
 
 
