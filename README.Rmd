@@ -1,8 +1,8 @@
 ---
 output: github_document
 title: "Visualising transport energy use: from area to route network levels"
-bibliography: od.bib
-# bibliography: allrefs.bib
+# bibliography: od.bib
+bibliography: allrefs.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -19,17 +19,17 @@ knitr::opts_chunk$set(
 ```
 
 ```{r, eval=FALSE, echo=FALSE}
-citr::tidy_bib_file(rmd_file = "README.Rmd", messy_bibliography = "allrefs.bib", file = "od.bib")
+citr::tidy_bib_file(rmd_file = "README.Rmd", messy_bibliography = "~/uaf/allrefs.bib", file = "od.bib")
 ```
 
 
-# Notes
+<!-- # Notes -->
 
-*This paper is work in progress. Comments and suggested changes are welcome.*
+<!-- *This paper is work in progress. Comments and suggested changes are welcome.* -->
 
-See the .Rmd file that contains the source code to reproduce the results (code not shown by default)
+<!-- See the .Rmd file that contains the source code to reproduce the results (code not shown by default) -->
 
-```{r setuppkgs}
+```{r setuppkgs, message=FALSE}
 # Note: these packages must be installed to reproduce the results
 library(pct)
 library(sf)
@@ -39,24 +39,43 @@ library(tmap)
 ```
 
 
-## Papers to cite
+<!-- ## Papers to cite -->
 
-We should probably cite these papers (please add more):
+<!-- We should probably cite these papers (please add more): -->
 
-- Paper on OD data for geodemographics: http://www.sciencedirect.com/science/article/pii/S0198971516303301
+<!-- - Paper on OD data for geodemographics: http://www.sciencedirect.com/science/article/pii/S0198971516303301 -->
 
 <!-- [@martin_origin-destination_2018] -->
 
-- [@alexander_validation_2015; @he_simple_2018; @munuzuri_estimation_2004]
-
+<!-- - [@alexander_validation_2015; @he_simple_2018; @munuzuri_estimation_2004] -->
 
 
 # Introduction
 
+
+
 <!--
 Draft suggestion for a new first paragraph (see comments below)
 -->
-Passenger transport is one of the main sources of energy use, especially personal cars (reference?). We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling.
+Passenger transport is a major and rapidly growing main sources of energy use [@gul_energy-economic_2009; @moriarty_global_2016; @gota_decarbonising_2019] but is rarely accounted-for in aggregate statistics on energy use at national, let alone sub-national levels.
+Globally, land-based passenger transport accounted for around 3.6 Gt CO_2_ in 2018, 11% of the global total.
+Passenger land transport is the single largest sub-sector within the transport sector, leading road freight, aviation, shipping and other modes (which accounted for 2.4, 0.9, 0.9 and 0.3 Gt respectively, omitting the increased impact of high altitude emissions from flying) acounting for 45% of transport emissions [@sims_transport_2014, Figure 1].
+<!-- [@zhang_role_2020] -->
+
+```{r, eval=FALSE}
+# passenger shares in global emissions
+8.0 / 0.24 # 33 Gt
+3.6 / 33
+2.4 / 33
+0.9 / 33
+0.9 / 33
+0.3 / 33
+sum()
+```
+
+
+
+. We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling.
 
 
 
