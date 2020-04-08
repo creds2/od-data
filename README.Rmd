@@ -1,5 +1,8 @@
 ---
-output: github_document
+# output: github_document
+output:
+  bookdown::word_document2:
+    number_sections: true
 title: "Visualising transport energy use: from area to route network levels"
 # bibliography: od.bib
 bibliography: allrefs.bib
@@ -18,8 +21,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 citr::tidy_bib_file(rmd_file = "README.Rmd", messy_bibliography = "~/uaf/allrefs.bib", file = "od.bib")
+file.copy("README.docx", "~/Pictures/visualising-transport-energy-use.docx", T)
 ```
 
 
@@ -52,14 +56,29 @@ library(tmap)
 
 # Introduction
 
-
-
 <!--
 Draft suggestion for a new first paragraph (see comments below)
 -->
-Passenger transport is a major and rapidly growing main sources of energy use [@gul_energy-economic_2009; @moriarty_global_2016; @gota_decarbonising_2019] but is rarely accounted-for in aggregate statistics on energy use at national, let alone sub-national levels.
-Globally, land-based passenger transport accounted for around 3.6 Gt CO_2_ in 2018, 11% of the global total.
-Passenger land transport is the single largest sub-sector within the transport sector, leading road freight, aviation, shipping and other modes (which accounted for 2.4, 0.9, 0.9 and 0.3 Gt respectively, omitting the increased impact of high altitude emissions from flying) acounting for 45% of transport emissions [@sims_transport_2014, Figure 1].
+Passenger transport was --- before the physical distancing measures and movement restrictions introduced in response to the Covid-19 Pandemic [e.g. @wilder-smith_isolation_2020; @mitja_experts_2020; @jarvis_quantifying_2020] --- a major, rapidly growing and particularly difficult-to-mitigate source of energy use and emissions [@gul_energy-economic_2009; @moriarty_global_2016; @gota_decarbonising_2019].
+Notwithstanding the potential for societal transformation it is possible, if not likely, that passenger transport energy use will continue its upward trajectory when restrictions on movement are relaxed.
+
+However, passenger transport is rarely accounted-for in aggregate statistics or thinking about energy use at national, let alone sub-national levels.
+Too often energy policies completely ignore transport.
+This paper aims to address these issues head-on, by demonstrating the potential for geographic visualisation methods to 'bring to life' the energy (and resulting emissions) impacts of transport, to inform thinking around and interventions enabling the rapid decarbonisation of the sector.
+The use of progressively more detailed visualisation techniques, from time series of sectoral energy use trajectories (including uncertainty of the future) to 'route network' energy use plots that can show energy use down to the road segment level to flag the role of carbon-intensive infrastructure is illustrated in the results, building on a national origin-destination dataset based on the UK's 2011 Census.
+
+Globally, land-based passenger transport accounted for around 3.6 Gt CO2 in 2018, 11% of the global total.
+Passenger land transport is the single largest sub-sector within the transport sector with passenger, road freight, aviation, shipping and other modes accounting for 45%, 30%, 11%, 11% and 3%, of the sector's emissions respectively, omitting the increased impact of high altitude emissions from flying,  acounting for 45% of transport emissions [@sims_transport_2014].^[
+See the International Energy Agency's interactive transport energy emissions tracker at https://www.iea.org/reports/tracking-transport-2019 for details.
+]
+The focus of the paper is on the UK, where the gap between projections of future emissions and the necessary cuts, to reach zero carbon by 2050, is larger than for other sectors [@departmentfortransport_decarbonising_2020].
+The UK is not necessarily representative of the global situation, but represents a good case study country due to the provision of national open access origin-destination data at high levels of geographic resolution [@lovelace_propensity_2017].
+The challenges that the UK's passenger transport sector faces from an emissions perspective, including high level of car dependency and under-investment in and capacity limits on public transport [@anable_complacent_2005; @pisu_improving_2015b], are not unique to Norther Europe.
+
+```{r, eval=FALSE}
+scholarsearch::scholarsearch("uk public transport investment capacity", as_ylo = 2010)
+```
+
 <!-- [@zhang_role_2020] -->
 
 ```{r, eval=FALSE}
@@ -70,14 +89,19 @@ Passenger land transport is the single largest sub-sector within the transport s
 0.9 / 33
 0.9 / 33
 0.3 / 33
+3.6 / 8
+2.4 / 8
+0.9 / 8
+0.9 / 8
+0.2 / 8
 sum()
 ```
 
+<!-- We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling. -->
 
+# Visualising transport energy use
 
-. We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling.
-
-
+<!-- This is the literature review -->
 
 Energy use is an inherently ephemeral phenomenon.
 Although, as the second law of thermodynamics states, energy cannot be created or destroyed, *useful energy* in the fossil fuel age exists only during the relatively short span between non-renewable sources being extracted and burned.
@@ -112,7 +136,16 @@ This paper sets out a case for analysing and visualising transport analysis at t
 
 - Something on visualisation of spatial phenomena, e.g. building on [@rae_spatial_2009]
 
+# Data and methods
+
+...
+
 # Levels of visualisation
+
+## Time series plots
+
+
+## Origin-destination data
 
 OD datasets are 'implicitly geographic': their coordinates are not contained in the data, but associated with another data object, typically a zone or a zone centroid.
 An example demonstrating OD data is shown below, which respresents 2.4 million desire lines at the MSOA-MSOA level in England and Wales.
@@ -250,13 +283,11 @@ knitr::include_graphics("energy_origins_destinations.png")
 
 ## Route networks
 
-# Next steps
+# Discussion and conclusion
 
 A next step for this will be to compare 'high energy origins' and 'high energy destinations' with other energy-related variables.
 
 We will also look at the impact of using route distances rather than straight line distances with an average cirquity.
-
-# Route analysis
 
 ```{r, echo=FALSE, eval=FALSE}
 # route data from Malcolm

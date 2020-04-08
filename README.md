@@ -28,20 +28,44 @@ Draft suggestion for a new first paragraph (see comments below)
 Passenger transport is a major and rapidly growing main sources of
 energy use (Gül et al. 2009; Moriarty and Honnery 2016; Gota et al.
 2019) but is rarely accounted-for in aggregate statistics on energy use
-at national, let alone sub-national levels. Globally, land-based
-passenger transport accounted for around 3.6 Gt CO\_2\_ in 2018, 11% of
-the global total. Passenger land transport is the single largest
-sub-sector within the transport sector, leading road freight, aviation,
-shipping and other modes (which accounted for 2.4, 0.9, 0.9 and 0.3 Gt
-respectively, omitting the increased impact of high altitude emissions
-from flying) acounting for 45% of transport emissions (Sims et al. 2014,
-Figure 1). <!-- [@zhang_role_2020] -->
+at national, let alone sub-national levels. This paper aims to
+demonstrate the potential for geographic visualisation methods to ‘bring
+to life’ the energy (and resulting emissions) impacts of transport, to
+inform thinking around and interventions enabling the rapid
+decarbonisation of the sector. The use of progressively more detailed
+visualisation techniques, from time series of sectoral energy use
+trajectories (including uncertainty of the future) to ‘route network’
+energy use plots that can show energy use down to the road segment level
+to flag the role of carbon-intensive infrastructure is illustrated in
+the results, building on a national origin-destination dataset based on
+the UK’s 2011 Census.
 
-. We analyse and visualise passenger transport data from the UK in order
-to understand which modes of transport are being used across the
-country. The aim of the study is to enable policy makers to invest in
-infrastucture which enables low-energy modes of transport, such as
-public transport and cycling.
+Globally, land-based passenger transport accounted for around 3.6 Gt CO2
+in 2018, 11% of the global total. Passenger land transport is the single
+largest sub-sector within the transport sector with passenger, road
+freight, aviation, shipping and other modes accounting for 45%, 30%,
+11%, 11% and 3%, of the sector’s emissions respectively, omitting the
+increased impact of high altitude emissions from flying, acounting for
+45% of transport emissions (Sims et al. 2014).\[1\] The focus of the
+paper is on the UK, where the gap between projections of future
+emissions and the necessary cuts, to reach zero carbon by 2050, is
+larger than for other sectors (Department for Transport 2020). The UK is
+not necessarily representative of the global situation, but represents a
+good case study country due to the provision of national open access
+origin-destination data at high levels of geographic resolution
+(Lovelace et al. 2017). The challenges that the UK’s passenger transport
+sector faces from an emissions perspective, including high level of car
+dependency and under-investment in and capacity limits on public
+transport (Anable 2005; Pisu, Pels, and Bottini 2015), are not unique to
+Norther Europe.
+
+<!-- [@zhang_role_2020] -->
+
+<!-- We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling. -->
+
+# Visualising transport energy use
+
+<!-- This is the literature review -->
 
 Energy use is an inherently ephemeral phenomenon. Although, as the
 second law of thermodynamics states, energy cannot be created or
@@ -97,7 +121,15 @@ transport analysis at this OD level.
   - Something on visualisation of spatial phenomena, e.g. building on
     (Rae 2009)
 
+# Data and methods
+
+…
+
 # Levels of visualisation
+
+## Time series plots
+
+## Origin-destination data
 
 OD datasets are ‘implicitly geographic’: their coordinates are not
 contained in the data, but associated with another data object,
@@ -151,7 +183,7 @@ results can over-emphasise attributes large, rural areas
 
 ## Route networks
 
-# Next steps
+# Discussion and conclusion
 
 A next step for this will be to compare ‘high energy origins’ and ‘high
 energy destinations’ with other energy-related variables.
@@ -159,13 +191,27 @@ energy destinations’ with other energy-related variables.
 We will also look at the impact of using route distances rather than
 straight line distances with an average cirquity.
 
-# Route analysis
-
 # Route network analysis
 
 # References
 
 <div id="refs" class="references hanging-indent">
+
+<div id="ref-anable_complacent_2005">
+
+Anable, Jillian. 2005. “‘Complacent Car Addicts’ or ‘Aspiring
+Environmentalists’? Identifying Travel Behaviour Segments Using Attitude
+Theory.” *Transport Policy* 12 (1): 65–78.
+<https://doi.org/10.1016/j.tranpol.2004.11.004>.
+
+</div>
+
+<div id="ref-departmentfortransport_decarbonising_2020">
+
+Department for Transport. 2020. “Decarbonising Transport Setting the
+Challenge.” Department for Transport.
+
+</div>
 
 <div id="ref-gota_decarbonising_2019">
 
@@ -185,11 +231,29 @@ Personal Transport Using the Global Multi-Regional MARKAL Model (GMM).”
 
 </div>
 
+<div id="ref-lovelace_propensity_2017">
+
+Lovelace, Robin, Anna Goodman, Rachel Aldred, Nikolai Berkoff, Ali
+Abbas, and James Woodcock. 2017. “The Propensity to Cycle Tool: An Open
+Source Online System for Sustainable Transport Planning.” *Journal of
+Transport and Land Use* 10 (1). <https://doi.org/10.5198/jtlu.2016.862>.
+
+</div>
+
 <div id="ref-moriarty_global_2016">
 
 Moriarty, Patrick, and Damon Honnery. 2016. “Global Transport Energy
 Consumption.” *Alternative Energy and Shale Gas Encyclopedia. NY: John
 Wiley and Sons*, 651–56.
+
+</div>
+
+<div id="ref-pisu_improving_2015b">
+
+Pisu, Mauro, Barbara Pels, and Novella Bottini. 2015. “Improving
+Infrastructure in the United Kingdom.” *OECD Economics Department
+Working Papers*, no. 1244.
+<https://doi.org/https://doi.org/https://doi.org/10.1787/5jrxqbqc7m0p-en>.
 
 </div>
 
@@ -217,3 +281,7 @@ Ch/Pdf/Assessment-Report/Ar5/Wg3/Ipcc\_wg3\_ar5\_chapter8. Pdf*.
 </div>
 
 </div>
+
+1.   See the International Energy Agency’s interactive transport energy
+    emissions tracker at
+    <https://www.iea.org/reports/tracking-transport-2019> for details.
