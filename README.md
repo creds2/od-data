@@ -25,20 +25,30 @@ Visualising transport energy use: from area to route network levels
 Draft suggestion for a new first paragraph (see comments below)
 -->
 
-Passenger transport is a major and rapidly growing main sources of
-energy use (Gül et al. 2009; Moriarty and Honnery 2016; Gota et al.
-2019) but is rarely accounted-for in aggregate statistics on energy use
-at national, let alone sub-national levels. This paper aims to
-demonstrate the potential for geographic visualisation methods to ‘bring
-to life’ the energy (and resulting emissions) impacts of transport, to
-inform thinking around and interventions enabling the rapid
-decarbonisation of the sector. The use of progressively more detailed
-visualisation techniques, from time series of sectoral energy use
-trajectories (including uncertainty of the future) to ‘route network’
-energy use plots that can show energy use down to the road segment level
-to flag the role of carbon-intensive infrastructure is illustrated in
-the results, building on a national origin-destination dataset based on
-the UK’s 2011 Census.
+Passenger transport was — before the physical distancing measures and
+movement restrictions introduced in response to the Covid-19 Pandemic
+(e.g. Wilder-Smith and Freedman 2020; Mitjà et al. 2020; Jarvis et al.
+2020) — a major, rapidly growing and particularly difficult-to-mitigate
+source of energy use and emissions (Gül et al. 2009; Moriarty and
+Honnery 2016; Gota et al. 2019). Notwithstanding the potential for
+societal transformation it is possible, if not likely, that passenger
+transport energy use will continue its upward trajectory when
+restrictions on movement are relaxed.
+
+However, passenger transport is rarely accounted-for in aggregate
+statistics or thinking about energy use at national, let alone
+sub-national levels. Too often energy policies completely ignore
+transport. This paper aims to address these issues head-on, by
+demonstrating the potential for geographic visualisation methods to
+‘bring to life’ the energy (and resulting emissions) impacts of
+transport, to inform thinking around and interventions enabling the
+rapid decarbonisation of the sector. The use of progressively more
+detailed visualisation techniques, from time series of sectoral energy
+use trajectories (including uncertainty of the future) to ‘route
+network’ energy use plots that can show energy use down to the road
+segment level to flag the role of carbon-intensive infrastructure is
+illustrated in the results, building on a national origin-destination
+dataset based on the UK’s 2011 Census.
 
 Globally, land-based passenger transport accounted for around 3.6 Gt CO2
 in 2018, 11% of the global total. Passenger land transport is the single
@@ -231,12 +241,29 @@ Personal Transport Using the Global Multi-Regional MARKAL Model (GMM).”
 
 </div>
 
+<div id="ref-jarvis_quantifying_2020">
+
+Jarvis, Christopher I., Kevin Van Zandvoort, Amy Gimma, Kiesha Prem,
+Petra Klepac, G. James Rubin, W. John Edmunds, and CMMID COVID-19
+working group. 2020. “Quantifying the Impact of Physical Distance
+Measures on the Transmission of COVID-19 in the UK.” *medRxiv*.
+
+</div>
+
 <div id="ref-lovelace_propensity_2017">
 
 Lovelace, Robin, Anna Goodman, Rachel Aldred, Nikolai Berkoff, Ali
 Abbas, and James Woodcock. 2017. “The Propensity to Cycle Tool: An Open
 Source Online System for Sustainable Transport Planning.” *Journal of
 Transport and Land Use* 10 (1). <https://doi.org/10.5198/jtlu.2016.862>.
+
+</div>
+
+<div id="ref-mitja_experts_2020">
+
+Mitjà, Oriol, Àlex Arenas, Xavier Rodó, Aurelio Tobias, Joe Brew, and
+José M. Benlloch. 2020. “Experts’ Request to the Spanish Government:
+Move Spain Towards Complete Lockdown.” *The Lancet*.
 
 </div>
 
@@ -277,6 +304,15 @@ Intergovernmental Panel on Climate Change Ed O Edenhofer et Al.”
 *Cambridge and New York: Cambridge University Press. Available at:
 Http://Www. Ipcc.
 Ch/Pdf/Assessment-Report/Ar5/Wg3/Ipcc\_wg3\_ar5\_chapter8. Pdf*.
+
+</div>
+
+<div id="ref-wilder-smith_isolation_2020">
+
+Wilder-Smith, A., and D. O. Freedman. 2020. “Isolation, Quarantine,
+Social Distancing and Community Containment: Pivotal Role for Old-Style
+Public Health Measures in the Novel Coronavirus (2019-nCoV) Outbreak.”
+*Journal of Travel Medicine* 27 (2): taaa020.
 
 </div>
 

@@ -1,8 +1,8 @@
 ---
-# output: github_document
-output:
-  bookdown::word_document2:
-    number_sections: true
+output: github_document
+# output:
+#   bookdown::word_document2:
+#     number_sections: true
 title: "Visualising transport energy use: from area to route network levels"
 # bibliography: od.bib
 bibliography: allrefs.bib
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 citr::tidy_bib_file(rmd_file = "README.Rmd", messy_bibliography = "~/uaf/allrefs.bib", file = "od.bib")
 file.copy("README.docx", "~/Pictures/visualising-transport-energy-use.docx", T)
 ```
