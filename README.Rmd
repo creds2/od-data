@@ -319,8 +319,6 @@ names(r_joined2)
 rnet = stplanr::overline2(r_joined2, "car_driver")
 ```
 
-# Route network analysis
-
 # References
 
 

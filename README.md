@@ -201,8 +201,6 @@ energy destinations’ with other energy-related variables.
 We will also look at the impact of using route distances rather than
 straight line distances with an average cirquity.
 
-# Route network analysis
-
 # References
 
 <div id="refs" class="references hanging-indent">
