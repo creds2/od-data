@@ -55,7 +55,7 @@ in 2018, 11% of the global total. Passenger land transport is the single
 largest sub-sector within the transport sector with passenger, road
 freight, aviation, shipping and other modes accounting for 45%, 30%,
 11%, 11% and 3%, of the sector’s emissions respectively, omitting the
-increased impact of high altitude emissions from flying, acounting for
+increased impact of high altitude emissions from flying, accounting for
 45% of transport emissions (Sims et al. 2014).\[1\] The focus of the
 paper is on the UK, where the gap between projections of future
 emissions and the necessary cuts, to reach zero carbon by 2050, is
@@ -67,11 +67,11 @@ origin-destination data at high levels of geographic resolution
 sector faces from an emissions perspective, including high level of car
 dependency and under-investment in and capacity limits on public
 transport (Anable 2005; Pisu, Pels, and Bottini 2015), are not unique to
-Norther Europe.
+Northern Europe.
 
 <!-- [@zhang_role_2020] -->
 
-<!-- We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastucture which enables low-energy modes of transport, such as public transport and cycling. -->
+<!-- We analyse and visualise passenger transport data from the UK in order to understand which modes of transport are being used across the country. The aim of the study is to enable policy makers to invest in infrastructure which enables low-energy modes of transport, such as public transport and cycling. -->
 
 # Visualising transport energy use
 
@@ -92,8 +92,8 @@ transport, the prime example of these conversions is in the privately
 owned car, often the most powerful energy converter people have access
 to. <!--
 * I suggest to move this paragraph a bit further. In my opinion, the first paragraph should be a to-the-point summary of our paper. This paragraph is about the physics of energy, which is more background. I added a new first paragraph as suggestion.
-* Also, it was quite difficult for me to read, and probably also for other non-native-English/non-specilist-in-energy people. Specifically:
-  * A few diffucult words which I had to look up: ephemeral and ubiquitous. Could be due to my bad English.
+* Also, it was quite difficult for me to read, and probably also for other non-native-English/non-specialist-in-energy people. Specifically:
+  * A few difficult words which I had to look up: ephemeral and ubiquitous. Could be due to my bad English.
   * This paragraph is basically a summary of physics about energy. For non-specialists like me, it took me some time to digest, and also raises some questions, such as 
     * What happens with the non-useful energy?
     * How does energy conversion work?
@@ -102,7 +102,7 @@ to. <!--
 -->
 
 The act of travel involves moving across geographic space. Because of
-this, policies to address unsustainably high levels transport energy use
+this, policies to address excessively high levels transport energy use
 can target three main areas: trip origins, typically residential
 locations where journeys begin; trip destinations, typically ‘trip
 generators’ such as school, hospitals and work places where trips end;
@@ -111,7 +111,7 @@ three potential areas for policy intervention, most of the focus has
 been on the first. This makes sense from a citizen-focussed policy
 perspective, enabling residential areas with excessive transport energy
 use to be identified. However, from an energy systems perspective, it
-makes sense to identify opportunties across all three areas to
+makes sense to identify opportunities across all three areas to
 intervene. Transport infrastructure can be modified to enable shift to
 low energy modes and encourage reductions in long distance travel;
 destinations can discourage driving and flying to reach them through
@@ -121,7 +121,7 @@ a couple of examples.
 The spatially distributed nature of transport energy use makes it not
 only possible, but also useful to analyse it across geographic space. We
 analyse geographic transport behaviour by using aggregated
-origin-destionation data (OD data), which contains the numbers of people
+origin-destination data (OD data), which contains the numbers of people
 travelling from origin to destination via intermediate points, by mode
 of transport. This paper sets out a case for analysing and visualising
 transport analysis at this OD level.
@@ -144,7 +144,7 @@ transport analysis at this OD level.
 OD datasets are ‘implicitly geographic’: their coordinates are not
 contained in the data, but associated with another data object,
 typically a zone or a zone centroid. An example demonstrating OD data is
-shown below, which respresents 2.4 million desire lines at the MSOA-MSOA
+shown below, which represents 2.4 million desire lines at the MSOA-MSOA
 level in England and Wales. The dataset shows the overall travel to work
 patterns across the UK, based on 21.6 million people in which both
 origin and destination were reported in the 2011 Census. This represents
@@ -163,7 +163,7 @@ circuity of 1.3, we can estimate the total energy use of the ‘high
 energy commutes’ as follows:
 
 That represents \~10 petajoules (PJ), only for the top 20,000 most
-energy intensive commutes. That may seem like alot, but represents only
+energy intensive commutes. That may seem like a lot, but represents only
 a fraction of the UK’s total energy use of [\~200
 Mtoe](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/729451/DUKES_PN.pdf)
 (8400 PJ).
@@ -171,7 +171,7 @@ Mtoe](https://assets.publishing.service.gov.uk/government/uploads/system/uploads
 ## Zone of origin
 
 The energy use presented at the OD level in the previous section can be
-aggregated to the zone leve.
+aggregated to the zone level.
 
 ## Zone of destination
 
@@ -199,7 +199,7 @@ A next step for this will be to compare ‘high energy origins’ and ‘high
 energy destinations’ with other energy-related variables.
 
 We will also look at the impact of using route distances rather than
-straight line distances with an average cirquity.
+straight line distances with an average circuity.
 
 # References
 
@@ -216,7 +216,7 @@ Theory.” *Transport Policy* 12 (1): 65–78.
 
 <div id="ref-departmentfortransport_decarbonising_2020">
 
-Department for Transport. 2020. “Decarbonising Transport Setting the
+Department for Transport. 2020. “Decarbonising Transport: Setting the
 Challenge.” Department for Transport.
 
 </div>
