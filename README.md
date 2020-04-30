@@ -101,22 +101,27 @@ to. <!--
 * 'the privately owned car': I assume that rental cars are just as bad.
 -->
 
-The act of travel involves moving across geographic space. Because of
-this, policies to address excessively high levels transport energy use
-can target three main areas: trip origins, typically residential
-locations where journeys begin; trip destinations, typically ‘trip
-generators’ such as school, hospitals and work places where trips end;
-and places in between, typically transport infrastructure. Of these
-three potential areas for policy intervention, most of the focus has
-been on the first. This makes sense from a citizen-focussed policy
+The act of travel involves moving across geographic space. Policies to
+reduce excessive transport energy use can be divided into three
+categories from a geographic perspective:
+
+  - trip origins, typically residential locations where journeys begin
+  - trip destinations, typically ‘trip generators’ such as school,
+    hospitals and work places where trips end
+  - and places in between, typically transport infrastructure
+
+Most research into transport energy use has focussed on the first of
+these categories. This makes sense from a citizen-focussed policy
 perspective, enabling residential areas with excessive transport energy
-use to be identified. However, from an energy systems perspective, it
-makes sense to identify opportunities across all three areas to
-intervene. Transport infrastructure can be modified to enable shift to
-low energy modes and encourage reductions in long distance travel;
-destinations can discourage driving and flying to reach them through
-parking costs and subsidising public transport modes to work, to provide
-a couple of examples.
+use to be identified. From geographic and energy systems perspectives,
+it makes sense to identify opportunities to intervene across the range
+of places and points in transport-energy systems. Examples of
+interventions focussing on each of the geographic ‘locations’ outlined
+above include: localised parking restrictions discouraging high car
+ownership in specific areas (at trip origins); increased parking costs
+at major trip attractors such as city centre car parks and airports (at
+destinations); and road pricing to subsidise public transport modes
+(between origins and destinations).
 
 The spatially distributed nature of transport energy use makes it not
 only possible, but also useful to analyse it across geographic space. We
@@ -159,8 +164,9 @@ downloaded, read-in and plotted as follows:
 
 Based on the estimate of the average energy use per km being 2.5 MJ, and
 that these return trips are made on average 200 times per year, with a
-circuity of 1.3, we can estimate the total energy use of the ‘high
-energy commutes’ as follows:
+circuity (the ratio of straight line distance to route distance) of 1.3,
+we can estimate the total energy use of the ‘high energy commutes’ as
+follows:
 
 That represents \~10 petajoules (PJ), only for the top 20,000 most
 energy intensive commutes. That may seem like a lot, but represents only
